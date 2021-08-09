@@ -30,9 +30,9 @@ app = Flask(__name__)
 
 # ACCESS_TOKEN及CHANNEL_SECRET 才能與註冊的LINE機器人互動
 # 'YOUR_CHANNEL_ACCESS_TOKEN' 權杖
-line_bot_api = LineBotApi('')  
+line_bot_api = LineBotApi('Yt7WAUkveEg2M5t8Rrhq/clK2ewR3MC4LYshsfJRra3gS7lR+OGJ4FCQ024iquTvZx6sMIz/7tXLLZg1W5YPfls/JstJLCI52ZN23YV39QxzNTq8yRAoeppvbOOIO9B5u/tEKxb5dTzuUMC+vjZp0QdB04t89/1O/w1cDnyilFU=')  
 # 'YOUR_CHANNEL_SECRET'
-handler = WebhookHandler('')  
+handler = WebhookHandler('20a7f0c7560bce12ffc4df04a66084f7')  
 
 
 # 如果有人連結到 www.line-bot.com/callback 會執行這個function callback()
