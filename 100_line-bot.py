@@ -25,7 +25,10 @@ from linebot.models import (
     MessageEvent, TextMessage, TextSendMessage,
 )
 
-app = Flask(__name__)
+
+# 等號左邊是程式名稱
+#app = Flask(__name__)
+100_line-bot = Flask(__name__)
 
 
 # ACCESS_TOKEN及CHANNEL_SECRET 才能與註冊的LINE機器人互動
