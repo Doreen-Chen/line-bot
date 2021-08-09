@@ -26,9 +26,8 @@ from linebot.models import (
 )
 
 
-# 等號左邊是程式名稱
+# 等號左邊是程式名稱, 查看Procfile
 app = Flask(__name__)
-#100_line-bot = Flask(__name__)
 
 
 # ACCESS_TOKEN及CHANNEL_SECRET 才能與註冊的LINE機器人互動
