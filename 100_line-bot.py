@@ -76,7 +76,7 @@ def handle_message(event):
     #elif user_msg == 'thank' or user_msg == 'tks':
     elif user_msg in ['thank', 'Thank', 'thanks', 'Thanks', 'tks', 'Tks']:  # 改清單
         s = 'You are welcome'
-    elif user_msg == '你是誰'
+    elif user_msg == '你是誰':
         s = '我是LINE bot'
     elif '訂位' in user_msg:
         s = '請問想預訂多少人呢'
