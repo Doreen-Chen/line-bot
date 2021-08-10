@@ -61,12 +61,21 @@ def callback():
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
-    # 回覆訊息需要token(如前面設定)
-    # 可看GitHub上 line bot的SDK, 也可回傳貼圖
-    # 未程式原樣, user傳入什麼, line機器人也回傳同樣訊息 TextSendMessage(text=event.message.text)
+    # 回覆使用者傳來的訊息
+    #   需要token(如前面設定)
+    #   可看GitHub上 line bot的SDK, 也可回傳貼圖
+    #   未程式原樣, user傳入什麼, line機器人也回傳同樣訊息 TextSendMessage(text=event.message.text)
+    # original:
+    #line_bot_api.reply_message(
+    #    event.reply_token,
+    #    TextSendMessage(text=event.message.text))  # event.message.text 使用者傳入的訊息
+    user_msg = event.message.text
+    s = 'Hi, Welcome to join us'
     line_bot_api.reply_message(
         event.reply_token,
-        TextSendMessage(text=event.message.text))
+        TextSendMessage(text=s))
+
+
 
 
 # 主程式增加if這行, 讓程式如果是被載入(import)不會一載入就執行
