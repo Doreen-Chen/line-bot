@@ -22,7 +22,7 @@ from linebot.exceptions import (
     InvalidSignatureError
 )
 from linebot.models import (
-    MessageEvent, TextMessage, TextSendMessage,
+    MessageEvent, TextMessage, TextSendMessage, StickerSendMessage
 )
 
 
@@ -69,31 +69,38 @@ def handle_message(event):
     #line_bot_api.reply_message(
     #    event.reply_token,
     #    TextSendMessage(text=event.message.text))  # event.message.text 使用者傳入的訊息
+
     user_msg = event.message.text
     s = '請留下聯絡方式,稍候由專人為您服務'
-    if user_msg in ['hi', 'Hi', 'HI']: # 改清單
-        s = 'Hi, Welcome to join us'
-    #elif user_msg == 'thank' or user_msg == 'tks':
-    elif user_msg in ['thank', 'Thank', 'thanks', 'Thanks', 'tks', 'Tks']:  # 改清單
-        s = 'You are welcome'
-    elif user_msg == '你是誰':
-        s = '我是LINE bot'
-    elif '訂位' in user_msg:
-        s = '請問想預訂多少人呢'
 
-    #line_bot_api.reply_message(
-    #    event.reply_token,
-    #    TextSendMessage(text=s))
-
-    # 改用貼圖回覆, 查詢 line-bot-sdk-python 及 sticker id
-    line_bot_api.reply_message(
-        event.reply_token,
-        StickerSendMessage(
+    # 回覆貼圖
+    # 查詢 line-bot-sdk-python 及 sticker id
+    if '貼圖' in user_msg:
+        sticker_message = StickerSendMessage(
             package_id='1',
             sticker_id='1'
-        ))
+        )
 
+        line_bot_api.reply_message(
+            event.reply_token,
+            sticker_message
+        )
 
+    else:
+        if user_msg in ['hi', 'Hi', 'HI']: # 改用清單
+            s = 'Hi, Welcome to join us'
+        #elif user_msg == 'thank' or user_msg == 'tks':
+        elif user_msg in ['thank', 'Thank', 'thanks', 'Thanks', 'tks', 'Tks']:  # 改用清單
+            s = 'You are welcome'
+        elif user_msg == '你是誰':
+            s = '我是LINE bot'
+        elif '訂位' in user_msg:
+            s = '請問想預訂多少人呢'
+
+        line_bot_api.reply_message(
+            event.reply_token,
+            TextSendMessage(text=s)
+        )
 
 
 # 主程式增加if這行, 讓程式如果是被載入(import)不會一載入就執行
