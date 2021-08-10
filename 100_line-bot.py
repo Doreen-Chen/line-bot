@@ -70,7 +70,12 @@ def handle_message(event):
     #    event.reply_token,
     #    TextSendMessage(text=event.message.text))  # event.message.text 使用者傳入的訊息
     user_msg = event.message.text
-    s = 'Hi, Welcome to join us'
+    s = '請留下聯絡方式,稍候由專人為您服務'
+    if user_msg == 'hi':
+        s = 'Hi, Welcome to join us'
+    elif user_msg == 'thank' or user_msg == 'tks':
+        s = 'You are welcome'        
+
     line_bot_api.reply_message(
         event.reply_token,
         TextSendMessage(text=s))
