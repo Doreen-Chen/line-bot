@@ -77,8 +77,8 @@ def handle_message(event):
     # 查詢 line-bot-sdk-python 及 sticker id
     if '貼圖' in user_msg:
         sticker_message = StickerSendMessage(
-            package_id='1',
-            sticker_id='1'
+            package_id='8525',
+            sticker_id='16581291'
         )
 
         line_bot_api.reply_message(
