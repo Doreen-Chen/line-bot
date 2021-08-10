@@ -81,9 +81,17 @@ def handle_message(event):
     elif '訂位' in user_msg:
         s = '請問想預訂多少人呢'
 
+    #line_bot_api.reply_message(
+    #    event.reply_token,
+    #    TextSendMessage(text=s))
+
+    # 改用貼圖回覆, 查詢 line-bot-sdk-python 及 sticker id
     line_bot_api.reply_message(
         event.reply_token,
-        TextSendMessage(text=s))
+        StickerSendMessage(
+            package_id='1',
+            sticker_id='1'
+        ))
 
 
 
