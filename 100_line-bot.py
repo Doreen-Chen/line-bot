@@ -71,10 +71,15 @@ def handle_message(event):
     #    TextSendMessage(text=event.message.text))  # event.message.text 使用者傳入的訊息
     user_msg = event.message.text
     s = '請留下聯絡方式,稍候由專人為您服務'
-    if user_msg == 'hi':
+    if user_msg in ['hi', 'Hi', 'HI']: # 改清單
         s = 'Hi, Welcome to join us'
-    elif user_msg == 'thank' or user_msg == 'tks':
-        s = 'You are welcome'        
+    #elif user_msg == 'thank' or user_msg == 'tks':
+    elif user_msg in ['thank', 'Thank', 'thanks', 'Thanks', 'tks', 'Tks']:  # 改清單
+        s = 'You are welcome'
+    elif user_msg == '你是誰'
+        s = '我是LINE bot'
+    elif '訂位' in user_msg:
+        s = '請問想預訂多少人呢'
 
     line_bot_api.reply_message(
         event.reply_token,
